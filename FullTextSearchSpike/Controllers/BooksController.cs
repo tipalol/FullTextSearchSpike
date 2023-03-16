@@ -4,6 +4,7 @@ using FullTextSearchSpike.Domain;
 using FullTextSearchSpike.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using NpgsqlTypes;
 
 namespace FullTextSearchSpike.Controllers;
 
@@ -30,6 +31,17 @@ public class BooksController : ControllerBase
     {
         var books = _dbContext.Books.Take(take).ToArray();
         return Ok(books);
+    }
+    
+    /// <summary>
+    /// Получает TsVector 
+    /// </summary>
+    [HttpGet("vector")]
+    public ActionResult<NpgsqlTsVector> GetTsVector([FromQuery] Guid id)
+    {
+        var book = _dbContext.Books.FirstOrDefault(x => x.Id == id);
+
+        return Ok(book?.SearchVector);
     }
     
     /// <summary>
