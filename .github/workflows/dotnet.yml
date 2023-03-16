@@ -27,4 +27,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Run
-      run: dotnet run --no-build
+      run: dotnet /bin/Debug/net7.0/FullTextSearchSpike.dll
