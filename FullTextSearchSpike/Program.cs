@@ -81,7 +81,7 @@ public static class ServicesExtensions
             Database = "textSearch",
             Username = "postgres",
             Password = "postgres",
-            MaxPoolSize = 200
+            MaxPoolSize = 400
         };
 
         return connectionStringBuilder.ConnectionString;

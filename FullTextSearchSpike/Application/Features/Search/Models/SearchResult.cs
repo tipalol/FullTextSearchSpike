@@ -12,5 +12,5 @@ public class SearchResult
     public long TimeSpent { get; set; }
     
     [JsonPropertyName("result")]
-    public IEnumerable<Book> Result { get; set; }
+    public IEnumerable<BookModel> Result { get; set; }
 }
